@@ -44,18 +44,18 @@ public enum Algorithm {
 
     static {
         for (final Algorithm algorithm : Algorithm.values()) {
-            aliases.put(normalize(algorithm.getJmvName()), algorithm);
+            aliases.put(normalize(algorithm.getJvmName()), algorithm);
             aliases.put(normalize(algorithm.getPortableName()), algorithm);
         }
     }
 
     private final String portableName;
-    private final String jmvName;
+    private final String jvmName;
     private final Class type;
 
-    Algorithm(final String jmvName, final String portableName, final Class type) {
+    Algorithm(final String jvmName, final String portableName, final Class type) {
         this.portableName = portableName;
-        this.jmvName = jmvName;
+        this.jvmName = jvmName;
         this.type = type;
     }
 
@@ -63,8 +63,8 @@ public enum Algorithm {
         return portableName;
     }
 
-    public String getJmvName() {
-        return jmvName;
+    public String getJvmName() {
+        return jvmName;
     }
 
     public Class getType() {
@@ -76,7 +76,7 @@ public enum Algorithm {
     }
 
     public static String toJvmName(final String name) {
-        return get(name).getJmvName();
+        return get(name).getJvmName();
     }
 
     public static Algorithm get(String name) {
